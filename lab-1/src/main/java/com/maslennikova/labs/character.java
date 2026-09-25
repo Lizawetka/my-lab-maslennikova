@@ -21,7 +21,8 @@ public character ( int id, String name, String status, String species, String ty
         this.gender = gender;
         this.origin_name = origin_name;
         this.location_name = location_name;
-        this.created = created;}
+        this.created = created;
+}
 
 public int getId() {return id;}
 public String getName() {return name; }
@@ -33,3 +34,5 @@ public String getOrigin_name(){return origin_name;}
 public String getLocation_name(){return location_name;}
 public String getCreated(){return craeted;}
 
+@Override
+public String toString() {return name + "-" + species; }
