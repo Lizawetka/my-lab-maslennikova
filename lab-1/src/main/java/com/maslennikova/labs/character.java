@@ -30,8 +30,6 @@ public String getSpecies(){return species;}
 public String getType(){return type;}
 public String getGender(){return gender;}
 public String getOrigin_name(){return origin_name;}
-public String getLocal_name(){return local_name;}
+public String getLocation_name(){return location_name;}
 public String getCreated(){return craeted;}
 
-@Override
-public
