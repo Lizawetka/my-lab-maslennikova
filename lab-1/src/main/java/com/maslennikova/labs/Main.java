@@ -29,7 +29,35 @@ public class Main{
             System.out.println("Error: файл characters.csv не найден/");
             return;
         }
-        Map<String, List<Character>> groupedByGender = new HashMap<>();
 
+        Map<String, List<Character>> groupedByGender = new HashMap<>();
+        for (Character c : allCharacters) {
+            String gender = c.gender;
+
+            if (!groupedByGender.containsKey(gender)) {
+                groupedByGender.put(gender, new ArrayList<>());
+            }
+
+            groupedByGender.get(gender).add(c);
+            try {
+                File outputFile = new File("lab-1/src/main/resources/grouped_by_gender.txt");
+                FileWriter writer = new FileWriter(outputFile);
+
+                for (String gender : groupedByGender.keySet()) {
+                    List<Character> list = groupedByGender.get(gender);
+
+                    writer.write(gender + " (" + list.size() + " чел.):\n");
+
+                    for (Character c : list) {
+                        writer.write("- " + c + "\n");
+                    }
+                    writer.close();
+                    System.out.println("Готовый результат записан в group_by_gender.txt");
+                }
+                catch(IOException e){
+                    System.out.println("Ошибка при записи файла: " + e.getMessage());
+                }
+            }
+        }
     }
 }
