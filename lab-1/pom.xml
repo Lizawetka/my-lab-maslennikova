@@ -11,20 +11,12 @@
 
     <artifactId>lab-1</artifactId>
 
-    <properties>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.10.2</junit.version>
-        <maven.shade.plugin.version>3.5.1</maven.shade.plugin.version>
-    </properties>
 
     <dependencies>
         <!-- Подключаем JUnit для тестирования -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
