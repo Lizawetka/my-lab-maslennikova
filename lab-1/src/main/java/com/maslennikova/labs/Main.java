@@ -13,27 +13,29 @@ public class Main {
 writeResultToFile(groupByGender, OUT_FILE);
     }
 
-
-
-        try {
-            File outputFile = new File("lab-1/src/main/resources/grouped_by_gender.csv");
-            //
-            FileWriter writer = new FileWriter(outputFile);
-            writer.write("gender,name,status,species\n");
-
-            for (String gender : groupedByGender.keySet()) {
-                List<Character> list = groupedByGender.get(gender);
-
-                for (Character c : list) {
-                    writer.write(gender + "," + c.name + "," + c.status + "," + c.species + "\n");
-                }
+    private static List<Character> readCharactersFromFile(String filePath) {
+        List<Character> characters = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            reader.readLine(); // пропускаем заголовок
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                String name = parts[1];
+                String status = parts[2];
+                String species = parts[3];
+                String gender = parts[5];
+                characters.add(new Character(name, status, species, gender));
             }
-
-            writer.close();
-            System.out.println("Result in file group_by_gender.csv");
-
+        } catch (FileNotFoundException e) {
+            System.err.println("Файл не найден: " + filePath);
+            throw new RuntimeException(e);
         } catch (IOException e) {
-            System.out.println("Error while writing file: " + e.getMessage());
+            System.err.println("Ошибка чтения файла: " + e.getMessage());
+            throw new RuntimeException(e);
         }
+        return characters;
     }
-}
+
+
+
+
