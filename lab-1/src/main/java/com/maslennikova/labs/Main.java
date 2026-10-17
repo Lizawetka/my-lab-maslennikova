@@ -9,14 +9,14 @@ public class Main {
 
     public static void main(String[] args) {
         List<Character> characters = readCharactersFromFile(INPUT_FILE);
-        Map<String, List<Character>> groupedByGender = groupByGender(characters);
+        Map<String, List<Character>> groupByGender = groupByGender(characters);
         writeResultToFile(groupByGender, OUT_FILE);
     }
 
     private static List<Character> readCharactersFromFile(String filePath) {
         List<Character> characters = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            reader.readLine(); // пропускаем заголовок
+            reader.readLine();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -54,7 +54,7 @@ public class Main {
                 }
             }
         } catch (IOException e) {
-            System.err.println("Ошибка записи в файл: " + e.getMessage());
+            System.err.println(" Error whith write file: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
