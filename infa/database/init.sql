@@ -1,0 +1,2 @@
+CREATE SCHEMA IF NOT EXISTS city_schema AUTHORIZATION city_user;
+
