@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.maslennikova.labs</groupId>
-        <artifactId>my-lab-maslennikova</artifactId>
+        <artifactId>my-labs-project</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>lab-1</artifactId>
-
 
     <dependencies>
         <!-- Подключаем JUnit для тестирования -->
@@ -28,7 +28,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>${maven.shade.plugin.version}</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -39,7 +38,6 @@
                             <!-- Создаем исполняемый JAR с указанием главного класса -->
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-
                                     <mainClass>com.maslennikova.labs.Main</mainClass>
                                 </transformer>
                             </transformers>
